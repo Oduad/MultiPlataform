@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -44,6 +45,7 @@ public class MainWindow extends JFrame {
 		menuBar.setBounds(0, 0, 400, 25);
 		// menuBar.setBackground(Color.yellow);
 		jMenuItem1 = new JMenuItem("Aritmetic operations");
+		jMenuItem1.addActionListener(null);
 		jMenuItem2 = new JMenuItem("Algebra operations");
 		jMenuItem3 = new JMenuItem("Vector operations");
 		jMenuItem4 = new JMenuItem("Algebra operations");
@@ -58,5 +60,9 @@ public class MainWindow extends JFrame {
 		operations.add(jMenuItem4);
 		operations.add(jMenuItem5);
 		setJMenuBar(menuBar);
+	}
+	
+	private void aritmeticActionPerformed(ActionEvent ae) {
+		WindowArithmetic wa = new WindowArithmetic();
 	}
 }
