@@ -14,16 +14,16 @@ public class WindowAlgebra extends JFrame {
 	GridBagLayout gbl;
 	JLabel numbers;
 	JButton jb0, jb1, jb2, jb3, jb4, jb5, jb6, jb7, jb8, jb9;
-	JButton jbc, jbpow, jbdiv, jberaise, jbmult, jbdiff, jbadd;
-	JButton jbConvert, jbDot, jbEquals;
+	JButton jbc, jbdiv, jberaise, jbmult, jbdiff, jbadd;
+	JButton jbEquals;
 
 	public WindowAlgebra() {
 		setVisible(true);
-		setTitle("Oduad Multi plataform :)");
+		setTitle("Algebra Operations");
 		setSize(350, 400);
 		setResizable(true);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		initComponents();
 	}
 
