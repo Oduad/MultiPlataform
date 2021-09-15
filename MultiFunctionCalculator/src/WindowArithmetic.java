@@ -23,7 +23,7 @@ public class WindowArithmetic extends JFrame {
 		setSize(350, 400);
 		setResizable(true);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		initComponents();
 	}
 
@@ -35,28 +35,29 @@ public class WindowArithmetic extends JFrame {
 		panel = new JPanel();
 		gbl = new GridBagLayout();
 		gbc = new GridBagConstraints();
+		gbc.fill = GridBagConstraints.BOTH; 
 		panel.setBackground(Color.cyan);
 		panel.setLayout(gbl);
 		this.add(panel);
 
 		numbers = new JLabel(" ANAYA ");
-		numbers.setBackground(Color.magenta);
-		numbers.setSize(150, 60);
+		numbers.setBackground(Color.RED);
+		//numbers.setSize(150, 60);
+		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 4;
-		gbc.gridheight = 1;
+		gbc.gridheight = 2;
 		panel.add(numbers, gbc);
 
 		jbc = new JButton("  C  ");
-		// jbc.setSize(40, 20);
-		// gbc.fill();
+		jbc.setBackground(Color.RED);
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
-		//gbc.weightx = 0.5;
-		//gbc.weighty = 0.5;
+		//gbc.weightx = 1;
+		//gbc.weighty = 1;
 		panel.add(jbc, gbc);
 
 		jbpow = new JButton("Pow");
