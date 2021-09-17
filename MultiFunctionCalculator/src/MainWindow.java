@@ -12,8 +12,10 @@ public class MainWindow extends JFrame {
 
 	JPanel panel;
 	JMenuBar menuBar;
-	JMenu operations, help, plots, games;
-	JMenuItem jMenuItem1, jMenuItem2, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItem6;
+	JMenu operations, help, plots, games, apps;
+	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItem6, jMenuItem7;
+	JMenuItem jMenuItemGameColors, jMenuItemThree;
+	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson;
 
 	public MainWindow() {
 		setVisible(true);
@@ -40,32 +42,55 @@ public class MainWindow extends JFrame {
 
 	private void setMenuBar() {
 		menuBar = new JMenuBar();
+		games = new JMenu("Games");
+		help = new JMenu("Help");
 		operations = new JMenu("Operations");
 		plots = new JMenu("Plots");
-		help = new JMenu("Help");
-		games = new JMenu("Games");
+		apps = new JMenu("Small Aps");
 		menuBar.setBounds(0, 0, 400, 25);
 		// menuBar.setBackground(Color.yellow);
-		jMenuItem1 = new JMenuItem("Aritmetic operations");
+		// For option operations:
+		jMenuItemArithmetic = new JMenuItem("Aritmetic operations");
 		aritmeticActionPerformed();
-		jMenuItem2 = new JMenuItem("Algebra operations");
+		jMenuItemAlgebra = new JMenuItem("Algebra operations");
 		algebraActionPerformed();
 		jMenuItem3 = new JMenuItem("Vector operations");
-		jMenuItem4 = new JMenuItem("Algebra operations");
+		jMenuItem4 = new JMenuItem("Matrix operations");
 		jMenuItem5 = new JMenuItem("Numerical Methods");
-		jMenuItem6 = new JMenuItem("Exit");
+		jMenuItem6 = new JMenuItem("Statistics");
+		jMenuItem7 = new JMenuItem("Exit");
 		close();
-		menuBar.add(operations);
-		menuBar.add(plots);
-		menuBar.add(help);
-		menuBar.add(games);
-		operations.add(jMenuItem1);
-		operations.add(jMenuItem2);
+		operations.add(jMenuItemArithmetic);
+		operations.add(jMenuItemAlgebra);
 		operations.add(jMenuItem3);
 		operations.add(jMenuItem4);
 		operations.add(jMenuItem5);
 		operations.add(jMenuItem6);
+		// For option small aps:
+		jMenuItemCounter = new JMenuItem("Click Counter");
+		CounterActionPerformed();
+		jMenuItemChronometer = new JMenuItem("Chronometer");
+		ChronometerActionPerformed();
+		jMenuItemAddPerson = new JMenuItem("Add Person");
+		AddPersonActionPerformed();
+		apps.add(jMenuItemAddPerson);
+		apps.add(jMenuItemCounter);
+		apps.add(jMenuItemChronometer);
+		// For option games:
+		jMenuItemGameColors = new JMenuItem("Game 'Colors' ");
+		colorsGameActionPerformed();
+		jMenuItemThree = new JMenuItem("Tic-tac-toe");
+		tttActionPerformed();
+		
+		games.add(jMenuItemGameColors);
+		games.add(jMenuItemThree);
+
+		menuBar.add(apps);
+		menuBar.add(games);
+		menuBar.add(help);	
 		setJMenuBar(menuBar);
+		menuBar.add(operations);
+		menuBar.add(plots);
 	}
 
 	private void aritmeticActionPerformed() {
@@ -75,7 +100,7 @@ public class MainWindow extends JFrame {
 				WindowArithmetic wa = new WindowArithmetic();
 			}
 		};
-		jMenuItem1.addActionListener(action);
+		jMenuItemArithmetic.addActionListener(action);
 	}
 
 	private void algebraActionPerformed() {
@@ -85,7 +110,58 @@ public class MainWindow extends JFrame {
 				WindowAlgebra wAlgebra = new WindowAlgebra();
 			}
 		};
-		jMenuItem2.addActionListener(action);
+		jMenuItemAlgebra.addActionListener(action);
+	}
+
+	private void colorsGameActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowColorGame wColorGame = new WindowColorGame();
+			}
+		};
+		jMenuItemGameColors.addActionListener(action);
+	}
+	
+	
+	private void CounterActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowCounter wColorGame = new WindowCounter();
+			}
+		};
+		jMenuItemCounter.addActionListener(action);
+	}
+	
+	private void ChronometerActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowChronometer wChr = new WindowChronometer();
+			}
+		};
+		jMenuItemChronometer.addActionListener(action);
+	}
+	
+	private void AddPersonActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowPerson wPerson = new WindowPerson();
+			}
+		};
+		jMenuItemAddPerson.addActionListener(action);
+	}
+	
+	private void tttActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//WindowTTT wTTT = new WindowTTT();
+			}
+		};
+		jMenuItemThree.addActionListener(action);
 	}
 
 	private void close() {
