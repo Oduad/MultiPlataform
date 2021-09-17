@@ -19,7 +19,7 @@ public class WindowArithmetic extends JFrame {
 
 	public WindowArithmetic() {
 		setVisible(true);
-		setTitle("Oduad Multi plataform :)");
+		setTitle("Window Arithmetic");
 		setSize(350, 400);
 		setResizable(true);
 		setLocationRelativeTo(null);
@@ -42,8 +42,7 @@ public class WindowArithmetic extends JFrame {
 
 		numbers = new JLabel(" ANAYA ");
 		numbers.setBackground(Color.RED);
-		//numbers.setSize(150, 60);
-		
+	
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 4;
@@ -51,17 +50,13 @@ public class WindowArithmetic extends JFrame {
 		panel.add(numbers, gbc);
 
 		jbc = new JButton("  C  ");
-		jbc.setBackground(Color.RED);
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
-		//gbc.weightx = 1;
-		//gbc.weighty = 1;
 		panel.add(jbc, gbc);
 
 		jbpow = new JButton("Pow");
-		// jbpow.setSize(40, 20);
 		gbc.gridx = 1;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
@@ -69,7 +64,6 @@ public class WindowArithmetic extends JFrame {
 		panel.add(jbpow, gbc);
 
 		jbdiv = new JButton("  / ");
-		// jbdiv.setSize(40, 20);
 		gbc.gridx = 2;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
@@ -77,7 +71,6 @@ public class WindowArithmetic extends JFrame {
 		panel.add(jbdiv, gbc);
 
 		jberaise = new JButton("<--");
-		// jberaise.setSize(40, 20);
 		gbc.gridx = 3;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
@@ -85,7 +78,6 @@ public class WindowArithmetic extends JFrame {
 		panel.add(jberaise, gbc);
 
 		jb7 = new JButton("  7  ");
-		// jb7.setSize(40, 20);
 		gbc.gridx = 0;
 		gbc.gridy = 3;
 		gbc.gridwidth = 1;
@@ -93,7 +85,6 @@ public class WindowArithmetic extends JFrame {
 		panel.add(jb7, gbc);
 
 		jb8 = new JButton("  8  ");
-		// jb8.setSize(40, 20);
 		gbc.gridx = 1;
 		gbc.gridy = 3;
 		gbc.gridwidth = 1;
@@ -101,7 +92,6 @@ public class WindowArithmetic extends JFrame {
 		panel.add(jb8, gbc);
 
 		jb9 = new JButton("  9  ");
-		// jb9.setSize(40, 20);
 		gbc.gridx = 2;
 		gbc.gridy = 3;
 		gbc.gridwidth = 1;
@@ -109,7 +99,6 @@ public class WindowArithmetic extends JFrame {
 		panel.add(jb9, gbc);
 
 		jbmult = new JButton("  X  ");
-		// jbmult.setSize(40, 20);
 		gbc.gridx = 3;
 		gbc.gridy = 3;
 		gbc.gridwidth = 1;
