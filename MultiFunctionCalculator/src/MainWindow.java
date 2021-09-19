@@ -13,13 +13,13 @@ public class MainWindow extends JFrame {
 	JPanel panel;
 	JMenuBar menuBar;
 	JMenu operations, help, plots, games, apps;
-	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItem6, jMenuItem7;
+	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItemStatistics, jMenuItemExit;
 	JMenuItem jMenuItemGameColors, jMenuItemThree;
 	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson;
 
 	public MainWindow() {
 		setVisible(true);
-		setTitle("Oduad Multi plataform :)");
+		setTitle("  Welcome to Oduad Multi plataform :)");
 		setSize(400, 550);
 		setResizable(false);
 		setLocationRelativeTo(null);
@@ -57,15 +57,16 @@ public class MainWindow extends JFrame {
 		jMenuItem3 = new JMenuItem("Vector operations");
 		jMenuItem4 = new JMenuItem("Matrix operations");
 		jMenuItem5 = new JMenuItem("Numerical Methods");
-		jMenuItem6 = new JMenuItem("Statistics");
-		jMenuItem7 = new JMenuItem("Exit");
+		jMenuItemStatistics = new JMenuItem("Statistics");
+		jMenuItemExit = new JMenuItem("Exit");
 		close();
 		operations.add(jMenuItemArithmetic);
 		operations.add(jMenuItemAlgebra);
 		operations.add(jMenuItem3);
 		operations.add(jMenuItem4);
 		operations.add(jMenuItem5);
-		operations.add(jMenuItem6);
+		operations.add(jMenuItemStatistics);
+		operations.add(jMenuItemExit);
 		// For option small aps:
 		jMenuItemCounter = new JMenuItem("Click Counter");
 		CounterActionPerformed();
@@ -85,12 +86,12 @@ public class MainWindow extends JFrame {
 		games.add(jMenuItemGameColors);
 		games.add(jMenuItemThree);
 
-		menuBar.add(apps);
 		menuBar.add(games);
 		menuBar.add(help);	
 		setJMenuBar(menuBar);
 		menuBar.add(operations);
 		menuBar.add(plots);
+		menuBar.add(apps);
 	}
 
 	private void aritmeticActionPerformed() {
@@ -98,6 +99,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowArithmetic wa = new WindowArithmetic();
+				setVisible(false);
 			}
 		};
 		jMenuItemArithmetic.addActionListener(action);
@@ -108,6 +110,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowAlgebra wAlgebra = new WindowAlgebra();
+				setVisible(false);
 			}
 		};
 		jMenuItemAlgebra.addActionListener(action);
@@ -118,17 +121,18 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowColorGame wColorGame = new WindowColorGame();
+				setVisible(false);
 			}
 		};
 		jMenuItemGameColors.addActionListener(action);
 	}
-	
 	
 	private void CounterActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowCounter wColorGame = new WindowCounter();
+				setVisible(false);
 			}
 		};
 		jMenuItemCounter.addActionListener(action);
@@ -139,6 +143,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowChronometer wChr = new WindowChronometer();
+				setVisible(false);
 			}
 		};
 		jMenuItemChronometer.addActionListener(action);
@@ -149,6 +154,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowPerson wPerson = new WindowPerson();
+				setVisible(false);
 			}
 		};
 		jMenuItemAddPerson.addActionListener(action);
@@ -159,6 +165,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//WindowTTT wTTT = new WindowTTT();
+				setVisible(false);
 			}
 		};
 		jMenuItemThree.addActionListener(action);
@@ -171,6 +178,6 @@ public class MainWindow extends JFrame {
 				System.exit(0);
 			}
 		};
-		jMenuItem6.addActionListener(action);
+		jMenuItemExit.addActionListener(action);
 	}
 }
