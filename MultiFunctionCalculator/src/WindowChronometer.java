@@ -49,6 +49,7 @@ public class WindowChronometer extends JFrame{
 
 	public WindowChronometer() {
 		setVisible(true);
+		setTitle("      Chronometer");
 		setSize(600, 400);
 		setResizable(false);
 		setLocationRelativeTo(null);
