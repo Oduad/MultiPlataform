@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class WindowPerson extends JFrame{
@@ -32,6 +34,7 @@ public class WindowPerson extends JFrame{
 		setSize(450, 650);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setTitle("      AddPerson Interface");
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		fillComboBox();
 		initComponents();
@@ -126,6 +129,7 @@ public class WindowPerson extends JFrame{
 		String[] person2 = { "Xochitl", "Reyes", "reyes", "2223549692" };
 		model.addRow(person1);
 		model.addRow(person2);
+		tableActionPerformed();
 	}
 
 	private void setTextFields() {
@@ -176,6 +180,31 @@ public class WindowPerson extends JFrame{
 				}
 		};
 		button1.addActionListener(action);
+	}
+	
+private void tableActionPerformed() {
+		ListSelectionListener listSelectionListener = new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if (e.getValueIsAdjusting()) {
+					int rowSelected = table.getSelectedRow();
+					String name = (String)model.getValueAt(rowSelected, 0);
+					String lastName = (String)model.getValueAt(rowSelected, 1);
+					String email = (String)model.getValueAt(rowSelected, 2);
+					String cel = (String)model.getValueAt(rowSelected, 3);
+					String dir = (String)model.getValueAt(rowSelected, 4);
+					
+					text1.setText(name);
+					text2.setText(lastName);
+					text3.setText(email);
+					text4.setText(cel);
+					text5.setText(dir);
+				}
+			}};
+		table.getSelectionModel().addListSelectionListener(listSelectionListener);
+		//Previous line says that the table has a specific model and it has a SelectionListener to know
+		//in what specific moment a row has been selected. 
 	}
 	
 }
