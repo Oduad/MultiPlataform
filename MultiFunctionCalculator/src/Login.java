@@ -23,6 +23,7 @@ public class Login extends JFrame{
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		// setUndecorated(true); //Para eliminar botones de un JFrame
 		initComponents();
 	}
@@ -93,6 +94,7 @@ public class Login extends JFrame{
 					if (password.equals(pass)) {
 						System.out.println("You are in the system");
 						MainWindow mainWindow = new MainWindow();
+						setVisible(false);
 					} else {
 						System.out.println("Password unknown");
 					}
