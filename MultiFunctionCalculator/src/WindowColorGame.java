@@ -21,12 +21,12 @@ public class WindowColorGame extends JFrame {
 
 	public WindowColorGame() {
 		setSize(600, 400);
-		setTitle("Exercise 3");
+		setTitle("         Game colors");
 		setLocationRelativeTo(null);
 		//setLayout(null);
 		setVisible(true);
 		startComponents();
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
 	private void startComponents() {
