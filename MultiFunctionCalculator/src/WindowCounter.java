@@ -18,12 +18,12 @@ public class WindowCounter extends JFrame{
 
 	public WindowCounter() {
 		setSize(600, 400);
-		setTitle("Exercise 1");
+		setTitle("           Counter");
 		setLocationRelativeTo(null);
 		setVisible(true);
 		startComponents();
 		panel.setBackground(Color.YELLOW);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
 	private void startComponents() {
@@ -53,7 +53,6 @@ public class WindowCounter extends JFrame{
 		button.setText("Pulse here");
 		button.setFont(new Font("Cooper black", 0, 18));
 		panel.add(button);
-
 		actionEvent();
 	}
 
