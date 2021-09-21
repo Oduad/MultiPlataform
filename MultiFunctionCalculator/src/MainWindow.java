@@ -13,9 +13,9 @@ public class MainWindow extends JFrame {
 	JPanel panel;
 	JMenuBar menuBar;
 	JMenu operations, help, plots, games, apps;
-	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItemStatistics, jMenuItemExit;
+	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItemStatistics, jMenuItemPlainCalculator, jMenuItemExit;
 	JMenuItem jMenuItemGameColors, jMenuItemThree;
-	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson;
+	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson, jMenuItemShowSports;
 
 	public MainWindow() {
 		setVisible(true);
@@ -58,6 +58,8 @@ public class MainWindow extends JFrame {
 		jMenuItem4 = new JMenuItem("Matrix operations");
 		jMenuItem5 = new JMenuItem("Numerical Methods");
 		jMenuItemStatistics = new JMenuItem("Statistics");
+		jMenuItemPlainCalculator = new JMenuItem("Plain Calculator");
+		plainCalculatorActionPerformed();
 		jMenuItemExit = new JMenuItem("Exit");
 		close();
 		operations.add(jMenuItemArithmetic);
@@ -66,6 +68,7 @@ public class MainWindow extends JFrame {
 		operations.add(jMenuItem4);
 		operations.add(jMenuItem5);
 		operations.add(jMenuItemStatistics);
+		operations.add(jMenuItemPlainCalculator);
 		operations.add(jMenuItemExit);
 		// For option small aps:
 		jMenuItemCounter = new JMenuItem("Click Counter");
@@ -74,9 +77,12 @@ public class MainWindow extends JFrame {
 		ChronometerActionPerformed();
 		jMenuItemAddPerson = new JMenuItem("Add Person");
 		AddPersonActionPerformed();
+		jMenuItemShowSports = new JMenuItem("Show Sports");
+		sportsActionPerformed();
 		apps.add(jMenuItemAddPerson);
 		apps.add(jMenuItemCounter);
 		apps.add(jMenuItemChronometer);
+		apps.add(jMenuItemShowSports);
 		// For option games:
 		jMenuItemGameColors = new JMenuItem("Game 'Colors' ");
 		colorsGameActionPerformed();
@@ -169,6 +175,28 @@ public class MainWindow extends JFrame {
 			}
 		};
 		jMenuItemThree.addActionListener(action);
+	}
+	
+	private void sportsActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//WindowTTT wTTT = new WindowTTT();
+				setVisible(false);
+			}
+		};
+		jMenuItemShowSports.addActionListener(action);
+	}
+	
+	private void plainCalculatorActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PlainCalculator pc = new PlainCalculator();
+				pc.chooseOption();
+			}
+		};
+		jMenuItemPlainCalculator.addActionListener(action);
 	}
 
 	private void close() {
