@@ -94,10 +94,11 @@ public class MainWindow extends JFrame {
 
 		menuBar.add(games);
 		menuBar.add(help);	
-		setJMenuBar(menuBar);
 		menuBar.add(operations);
 		menuBar.add(plots);
 		menuBar.add(apps);
+		
+		setJMenuBar(menuBar);
 	}
 
 	private void aritmeticActionPerformed() {
@@ -105,7 +106,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowArithmetic wa = new WindowArithmetic();
-				setVisible(false);
+				//setVisible(false);
 			}
 		};
 		jMenuItemArithmetic.addActionListener(action);
