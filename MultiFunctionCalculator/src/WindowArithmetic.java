@@ -154,6 +154,7 @@ public class WindowArithmetic extends JFrame {
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 		panel.add(jbDifference, gbc);
+		differenceActionPerformed();
 
 		jb1 = new JButton("  1  ");
 		gbc.gridx = 0;
@@ -358,6 +359,23 @@ public class WindowArithmetic extends JFrame {
 		jbAddition.addActionListener(action);
 	}
 
+	private void differenceActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (enabled = true) {
+					number1 = Double.parseDouble(numbersString);
+					show.setText(numbersString + " + ");
+					numbersString = "";
+					operation = "add";
+					enabled = false;
+					dot = true;
+				}
+			}
+		};
+		jbAddition.addActionListener(action);
+	}
+	
 	private void dotActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
