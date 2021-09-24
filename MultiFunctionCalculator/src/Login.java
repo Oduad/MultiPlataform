@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,16 +15,16 @@ public class Login extends JFrame{
 	private JPanel panel;
 	private JTextField text1;
 	private JPasswordField text2;
-	private JLabel label1, label2;
+	private JLabel label1, label2, labelShow;
 	private JButton button;
+	Toolkit tk = getToolkit().getDefaultToolkit();
 
 	public Login() {
 		setVisible(true);
-		setSize(600, 400);
+		setSize((int)tk.getScreenSize().getWidth()/2+50, (int)tk.getScreenSize().getHeight()/2);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 		// setUndecorated(true); //Para eliminar botones de un JFrame
 		initComponents();
 	}
@@ -37,7 +38,7 @@ public class Login extends JFrame{
 
 	private void setPanel() {
 		panel = new JPanel();
-		panel.setBackground(Color.magenta);
+		panel.setBackground(new Color(135, 206, 250));
 		panel.setLayout(null);
 		this.add(panel);
 	}
@@ -47,6 +48,12 @@ public class Login extends JFrame{
 		label1.setBounds(50, 100, 200, 20);
 		label1.setFont(new Font("Arial", 1, 24));
 		panel.add(label1);
+		
+		labelShow = new JLabel("");
+		labelShow.setBounds(450, 140, 250, 20);
+		labelShow.setBackground(new Color(135, 206, 250));
+		labelShow.setFont(new Font("Arial", 1, 15));
+		panel.add(labelShow);
 
 		label2 = new JLabel("Password: ");
 		label2.setBounds(50, 180, 200, 20);
@@ -71,7 +78,7 @@ public class Login extends JFrame{
 	private void setButton() {
 		button = new JButton("Start");
 		button.setFont(new Font("Arial", 1, 15));
-		button.setBounds(235, 270, 150, 50);
+		button.setBounds(235, 250, 150, 50);
 		panel.add(button);
 		jButtonActionPerformed();
 	}
@@ -90,16 +97,17 @@ public class Login extends JFrame{
 					for (int i = 0; i < text2.getPassword().length; i++) {
 						pass += text2.getPassword()[i];
 					}
-					System.out.println(pass);
 					if (password.equals(pass)) {
-						System.out.println("You are in the system");
+						System.out.println("You are in the application");
 						MainWindow mainWindow = new MainWindow();
 						setVisible(false);
 					} else {
-						System.out.println("Password unknown");
+						labelShow.setText("Wrong password!");
+						System.out.println(pass+ " is a wrong password!");
 					}
 				} else {
-					System.out.println("User unknown");
+					labelShow.setText(text1.getText()+" is not an user.");
+					System.out.println(text1.getText()+" is not an user.");
 				}
 			}
 		};
