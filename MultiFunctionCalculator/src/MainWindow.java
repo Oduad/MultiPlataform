@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,15 +13,18 @@ public class MainWindow extends JFrame {
 
 	JPanel panel;
 	JMenuBar menuBar;
-	JMenu operations, help, plots, games, apps;
-	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItemStatistics, jMenuItemPlainCalculator, jMenuItemExit;
-	JMenuItem jMenuItemGameColors, jMenuItemThree;
-	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson, jMenuItemShowSports;
-
+	JMenu operations, help, plots, games, apps, close, plainCalculator;
+	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItemStatistics,
+			jMenuItemPlainCalculator, jMenuItemExit;
+	JMenuItem jMenuItemGameColors, jMenuItemTTT, jMenuItemPong ;
+	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson, jMenuItemShowSports, jMenuItemBillboard,
+			jMenuItemCRUD;
+	Toolkit tk = getToolkit().getDefaultToolkit();;
+	
 	public MainWindow() {
 		setVisible(true);
 		setTitle("  Welcome to Oduad Multi plataform :)");
-		setSize(400, 550);
+		setSize((int)tk.getScreenSize().getWidth()/2, (int)tk.getScreenSize().getHeight()/2);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,19 +39,21 @@ public class MainWindow extends JFrame {
 	private void setPanel() {
 		panel = new JPanel();
 		// setSize(300,450);
-		// panel.setBackground(Color.magenta);
+		panel.setBackground(new Color(160, 250, 70));
 		panel.setLayout(null);
 		this.add(panel);
 	}
 
 	private void setMenuBar() {
 		menuBar = new JMenuBar();
+		close = new JMenu("Close");
 		games = new JMenu("Games");
 		help = new JMenu("Help");
-		operations = new JMenu("Operations");
+		operations = new JMenu("Interface Calculators");
+		plainCalculator = new JMenu("Plain Calculator");
 		plots = new JMenu("Plots");
 		apps = new JMenu("Small Aps");
-		menuBar.setBounds(0, 0, 400, 25);
+		menuBar.setBounds(0, 0, 500, 25);
 		// menuBar.setBackground(Color.yellow);
 		// For option operations:
 		jMenuItemArithmetic = new JMenuItem("Aritmetic operations");
@@ -57,8 +63,8 @@ public class MainWindow extends JFrame {
 		jMenuItem3 = new JMenuItem("Vector operations");
 		jMenuItem4 = new JMenuItem("Matrix operations");
 		jMenuItem5 = new JMenuItem("Numerical Methods");
-		jMenuItemStatistics = new JMenuItem("Statistics");
 		jMenuItemPlainCalculator = new JMenuItem("Plain Calculator");
+		jMenuItemStatistics = new JMenuItem("Statistics");
 		plainCalculatorActionPerformed();
 		jMenuItemExit = new JMenuItem("Exit");
 		close();
@@ -69,7 +75,6 @@ public class MainWindow extends JFrame {
 		operations.add(jMenuItem5);
 		operations.add(jMenuItemStatistics);
 		operations.add(jMenuItemPlainCalculator);
-		operations.add(jMenuItemExit);
 		// For option small aps:
 		jMenuItemCounter = new JMenuItem("Click Counter");
 		CounterActionPerformed();
@@ -79,25 +84,36 @@ public class MainWindow extends JFrame {
 		AddPersonActionPerformed();
 		jMenuItemShowSports = new JMenuItem("Show Sports");
 		sportsActionPerformed();
+		jMenuItemBillboard = new JMenuItem("Billboard");
+		billboardActionPerformed();
+		jMenuItemCRUD = new JMenuItem("CRUD");
+
 		apps.add(jMenuItemAddPerson);
+		apps.add(jMenuItemBillboard);
 		apps.add(jMenuItemCounter);
+		apps.add(jMenuItemCRUD);
 		apps.add(jMenuItemChronometer);
 		apps.add(jMenuItemShowSports);
 		// For option games:
 		jMenuItemGameColors = new JMenuItem("Game 'Colors' ");
 		colorsGameActionPerformed();
-		jMenuItemThree = new JMenuItem("Tic-tac-toe");
+		jMenuItemTTT = new JMenuItem("Tic-tac-toe");
 		tttActionPerformed();
-		
+		jMenuItemPong = new JMenuItem("Pong");
+		///pongActionPerformed();
 		games.add(jMenuItemGameColors);
-		games.add(jMenuItemThree);
+		games.add(jMenuItemPong);
+		games.add(jMenuItemTTT);
+		plainCalculator.add(jMenuItemPlainCalculator);
 
+		menuBar.add(close);
 		menuBar.add(games);
-		menuBar.add(help);	
+		menuBar.add(help);
 		menuBar.add(operations);
+		menuBar.add(plainCalculator);
 		menuBar.add(plots);
 		menuBar.add(apps);
-		
+
 		setJMenuBar(menuBar);
 	}
 
@@ -106,7 +122,7 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowArithmetic wa = new WindowArithmetic();
-				//setVisible(false);
+				// setVisible(false);
 			}
 		};
 		jMenuItemArithmetic.addActionListener(action);
@@ -117,7 +133,8 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowAlgebra wAlgebra = new WindowAlgebra();
-				setVisible(false);
+				
+				//setVisible(false);
 			}
 		};
 		jMenuItemAlgebra.addActionListener(action);
@@ -128,67 +145,67 @@ public class MainWindow extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowColorGame wColorGame = new WindowColorGame();
-				setVisible(false);
+				//setVisible(false);
 			}
 		};
 		jMenuItemGameColors.addActionListener(action);
 	}
-	
+
 	private void CounterActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowCounter wColorGame = new WindowCounter();
-				setVisible(false);
+				//setVisible(false);
 			}
 		};
 		jMenuItemCounter.addActionListener(action);
 	}
-	
+
 	private void ChronometerActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowChronometer wChr = new WindowChronometer();
-				setVisible(false);
+				//setVisible(false);
 			}
 		};
 		jMenuItemChronometer.addActionListener(action);
 	}
-	
+
 	private void AddPersonActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowPerson wPerson = new WindowPerson();
-				setVisible(false);
+				//setVisible(false);
 			}
 		};
 		jMenuItemAddPerson.addActionListener(action);
 	}
-	
+
 	private void tttActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//WindowTTT wTTT = new WindowTTT();
-				setVisible(false);
+				// WindowTTT wTTT = new WindowTTT();
+				//setVisible(false);
 			}
 		};
-		jMenuItemThree.addActionListener(action);
+		jMenuItemTTT.addActionListener(action);
 	}
-	
+
 	private void sportsActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//WindowTTT wTTT = new WindowTTT();
-				setVisible(false);
+				// WindowTTT wTTT = new WindowTTT();
+				// setVisible(false);
 			}
 		};
 		jMenuItemShowSports.addActionListener(action);
 	}
-	
+
 	private void plainCalculatorActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
@@ -198,6 +215,16 @@ public class MainWindow extends JFrame {
 			}
 		};
 		jMenuItemPlainCalculator.addActionListener(action);
+	}
+
+	private void billboardActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowBillboard wBb = new WindowBillboard();
+			}
+		};
+		jMenuItemBillboard.addActionListener(action);
 	}
 
 	private void close() {
