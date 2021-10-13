@@ -3,7 +3,7 @@ package pong;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class BoardEvent extends KeyAdapter {
+public class KeyBoardEvent extends KeyAdapter {
 
 	static boolean w, s, up, down;
 
