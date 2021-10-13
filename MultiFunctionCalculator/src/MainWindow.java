@@ -2,12 +2,12 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import tictactoe.MainTicTacToe;
 
 public class MainWindow extends JFrame {
 
@@ -54,7 +54,7 @@ public class MainWindow extends JFrame {
 		plots = new JMenu("Plots");
 		apps = new JMenu("Small Aps");
 		menuBar.setBounds(0, 0, 500, 25);
-		// menuBar.setBackground(Color.yellow);
+		
 		// For option operations:
 		jMenuItemArithmetic = new JMenuItem("Aritmetic operations");
 		aritmeticActionPerformed();
@@ -104,6 +104,7 @@ public class MainWindow extends JFrame {
 		games.add(jMenuItemGameColors);
 		games.add(jMenuItemPong);
 		games.add(jMenuItemTTT);
+		
 		plainCalculator.add(jMenuItemPlainCalculator);
 
 		menuBar.add(close);
@@ -155,7 +156,8 @@ public class MainWindow extends JFrame {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				WindowCounter wColorGame = new WindowCounter();
+				WindowCounter wCounter = new WindowCounter();
+				//WindowChronometer wChr = new WindowChronometer();
 				//setVisible(false);
 			}
 		};
@@ -188,8 +190,8 @@ public class MainWindow extends JFrame {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// WindowTTT wTTT = new WindowTTT();
-				//setVisible(false);
+				WindowTTT wTTT = new WindowTTT();
+				wTTT.setVisible(true);
 			}
 		};
 		jMenuItemTTT.addActionListener(action);
@@ -199,8 +201,8 @@ public class MainWindow extends JFrame {
 		ActionListener action = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// WindowTTT wTTT = new WindowTTT();
-				// setVisible(false);
+				WindowSports wSport = new WindowSports();
+				
 			}
 		};
 		jMenuItemShowSports.addActionListener(action);
