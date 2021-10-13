@@ -21,7 +21,7 @@ public class WindowPerson extends JFrame{
 
 	private JPanel panel;
 	private JLabel person, personData, name, lastName, email, cel, home;;
-	private JComboBox combo;
+	private JComboBox<Person> combo;
 	private JButton button1;
 	private JTable table;
 	private JTextField text1, text2, text3, text4, text5;
@@ -95,7 +95,7 @@ public class WindowPerson extends JFrame{
 	}
 
 	private void setCombo() {
-		combo = new JComboBox(modelCombo);
+		combo = new JComboBox<Person>(modelCombo);
 		combo.setBounds(50, 90, 120, 25);
 		panel.add(combo);
 	}
