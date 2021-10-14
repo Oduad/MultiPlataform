@@ -18,19 +18,19 @@ public class Racket {
 	}
 
 	public void moveRacket1(Rectangle limits) {
-		if (BoardEvent.w && y > limits.getMinY()) {
+		if (KeyBoardEvent.w && y > limits.getMinY()) {
 			y--;
 		}
-		if (BoardEvent.s && y < limits.getMaxY() - HEIGHT) {
+		if (KeyBoardEvent.s && y < limits.getMaxY() - HEIGHT) {
 			y++;
 		}
 	}
 
 	public void moveRacket2(Rectangle limits) {
-		if (BoardEvent.up && y > limits.getMinY()) {
+		if (KeyBoardEvent.up && y > limits.getMinY()) {
 			y--;
 		}
-		if (BoardEvent.down && y < limits.getMaxY() - HEIGHT) {
+		if (KeyBoardEvent.down && y < limits.getMaxY() - HEIGHT) {
 			y++;
 		}
 	}
