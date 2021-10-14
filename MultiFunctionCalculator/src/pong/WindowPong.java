@@ -16,7 +16,7 @@ public class WindowPong extends JFrame {
 		setResizable(false);
 		sheet = new GameBoard();
 		add(sheet);
-		addKeyListener(new BoardEvent());
+		addKeyListener(new KeyBoardEvent());
 		thread = new Thread2(sheet);
 		thread.start();
 		//sheet.iterateGame();
