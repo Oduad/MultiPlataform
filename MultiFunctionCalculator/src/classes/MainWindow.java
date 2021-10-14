@@ -12,23 +12,24 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import pong.WindowPong;
+import snake.Snake;
 
-public class MainWindow extends JFrame{
-	
+public class MainWindow extends JFrame {
+
 	JPanel panel;
 	JMenuBar menuBar;
 	JMenu operations, help, plots, games, apps, close, plainCalculator;
 	JMenuItem jMenuItemArithmetic, jMenuItemAlgebra, jMenuItem3, jMenuItem4, jMenuItem5, jMenuItemStatistics,
 			jMenuItemPlainCalculator, jMenuItemExit;
-	JMenuItem jMenuItemGameColors, jMenuItemTTT, jMenuItemPong ;
+	JMenuItem jMenuItemGameColors, jMenuItemTTT, jMenuItemPong, jMenuItemSnake;
 	JMenuItem jMenuItemCounter, jMenuItemChronometer, jMenuItemAddPerson, jMenuItemShowSports, jMenuItemBillboard,
 			jMenuItemCRUD;
 	Toolkit tk = getToolkit().getDefaultToolkit();;
-	
+
 	public MainWindow() {
 		setVisible(true);
 		setTitle("  Welcome to Oduad Multi plataform :)");
-		setSize((int)tk.getScreenSize().getWidth()/2, (int)tk.getScreenSize().getHeight()/2);
+		setSize((int) tk.getScreenSize().getWidth() / 2, (int) tk.getScreenSize().getHeight() / 2);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -58,7 +59,7 @@ public class MainWindow extends JFrame{
 		plots = new JMenu("Plots");
 		apps = new JMenu("Small Aps");
 		menuBar.setBounds(0, 0, 500, 25);
-		
+
 		// For option operations:
 		jMenuItemArithmetic = new JMenuItem("Aritmetic operations");
 		aritmeticActionPerformed();
@@ -101,14 +102,17 @@ public class MainWindow extends JFrame{
 		// For option games:
 		jMenuItemGameColors = new JMenuItem("Game 'Colors' ");
 		colorsGameActionPerformed();
+		jMenuItemSnake = new JMenuItem("Snake");
+		snakeActionPerformed();
 		jMenuItemTTT = new JMenuItem("Tic-tac-toe");
 		tttActionPerformed();
 		jMenuItemPong = new JMenuItem("Pong");
 		pongActionPerformed();
 		games.add(jMenuItemGameColors);
 		games.add(jMenuItemPong);
+		games.add(jMenuItemSnake);
 		games.add(jMenuItemTTT);
-		
+
 		plainCalculator.add(jMenuItemPlainCalculator);
 
 		menuBar.add(close);
@@ -138,8 +142,8 @@ public class MainWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowAlgebra wAlgebra = new WindowAlgebra();
-				
-				//setVisible(false);
+
+				// setVisible(false);
 			}
 		};
 		jMenuItemAlgebra.addActionListener(action);
@@ -150,7 +154,7 @@ public class MainWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowColorGame wColorGame = new WindowColorGame();
-				//setVisible(false);
+				// setVisible(false);
 			}
 		};
 		jMenuItemGameColors.addActionListener(action);
@@ -161,8 +165,8 @@ public class MainWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowCounter wCounter = new WindowCounter();
-				//WindowChronometer wChr = new WindowChronometer();
-				//setVisible(false);
+				// WindowChronometer wChr = new WindowChronometer();
+				// setVisible(false);
 			}
 		};
 		jMenuItemCounter.addActionListener(action);
@@ -173,7 +177,7 @@ public class MainWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowChronometer wChr = new WindowChronometer();
-				//setVisible(false);
+				// setVisible(false);
 			}
 		};
 		jMenuItemChronometer.addActionListener(action);
@@ -184,7 +188,7 @@ public class MainWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowPerson wPerson = new WindowPerson();
-				//setVisible(false);
+				// setVisible(false);
 			}
 		};
 		jMenuItemAddPerson.addActionListener(action);
@@ -206,7 +210,7 @@ public class MainWindow extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				WindowSports wSport = new WindowSports();
-				
+
 			}
 		};
 		jMenuItemShowSports.addActionListener(action);
@@ -232,7 +236,7 @@ public class MainWindow extends JFrame{
 		};
 		jMenuItemBillboard.addActionListener(action);
 	}
-	
+
 	private void pongActionPerformed() {
 		ActionListener action = new ActionListener() {
 			@Override
@@ -241,6 +245,16 @@ public class MainWindow extends JFrame{
 			}
 		};
 		jMenuItemPong.addActionListener(action);
+	}
+	
+	private void snakeActionPerformed() {
+		ActionListener action = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Snake snake = new Snake();
+			}
+		};
+		jMenuItemSnake.addActionListener(action);
 	}
 
 	private void close() {
